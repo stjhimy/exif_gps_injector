@@ -1,10 +1,6 @@
-# -*- encoding: utf-8 -*-
-$LOAD_PATH.push File.expand_path('../lib', __FILE__)
-require 'exif_gps_injector/version'
-
 Gem::Specification.new do |s|
   s.name        = 'exif_gps_injector'
-  s.version     = ExifGpsInjector::VERSION
+  s.version     = '0.0.1'
   s.authors     = ['Jhimy Fernandes Villar']
   s.email       = ['stjhimy@gmail.com']
   s.homepage    = 'http://github.com/stjhimy/exif_gps_injector'
