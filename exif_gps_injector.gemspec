@@ -12,6 +12,9 @@ Gem::Specification.new do |s|
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ['lib']
 
-  s.add_development_dependency 'rspec',   '~> 3.4'
-  s.add_dependency 'nokogiri',            '~> 1.6'
+  s.add_development_dependency 'guard',           '~> 2.13'
+  s.add_development_dependency 'guard-rspec',     '~> 4.6'
+  s.add_development_dependency 'guard-rubocop',   '~> 1.2'
+  s.add_development_dependency 'rspec',           '~> 3.4'
+  s.add_dependency 'nokogiri',                    '~> 1.6'
 end
