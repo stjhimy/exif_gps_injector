@@ -16,5 +16,6 @@ Gem::Specification.new do |s|
   s.add_development_dependency 'guard-rspec',     '~> 4.6'
   s.add_development_dependency 'guard-rubocop',   '~> 1.2'
   s.add_development_dependency 'rspec',           '~> 3.4'
+  s.add_development_dependency 'vcr',             '~> 3.0'
   s.add_dependency 'nokogiri',                    '~> 1.6'
 end
