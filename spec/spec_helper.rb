@@ -1,5 +1,6 @@
 require 'rubygems'
 require 'bundler/setup'
+require 'vcr'
 
 require 'exif_gps_injector'
 
