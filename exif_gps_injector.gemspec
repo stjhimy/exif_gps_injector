@@ -5,7 +5,7 @@ Gem::Specification.new do |s|
   s.email       = ['stjhimy@gmail.com']
   s.homepage    = 'http://github.com/stjhimy/exif_gps_injector'
   s.summary     = ''
-  s.description = ""
+  s.description = ''
   s.license = 'MIT'
 
   s.files         = `git ls-files`.split("\n")
