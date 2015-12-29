@@ -8,12 +8,8 @@
 #  * 'just' rspec: 'rspec'
 
 guard :rspec, cmd: 'bundle exec rspec' do
-  require 'guard/rspec/dsl'
-  dsl = Guard::RSpec::Dsl.new(self)
-
-  # Ruby files
-  ruby = dsl.ruby
-  dsl.watch_spec_files_for(ruby.lib_files)
+  watch(%r{^lib/(.+)\.rb$}) { 'spec' }
+  watch(%r{^spec/(.+)\.rb$}) { 'spec' }
 end
 
 guard :rubocop do
