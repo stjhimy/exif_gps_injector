@@ -4,10 +4,11 @@ module ExifGpsInjector
     attr_reader :list
     attr_accessor :max_distance_time
 
-    def initialize(file, options = {})
+    def initialize(options = {})
+      @dir = options.delete(:dir)
       @max_distance_time = options.delete(:max_distance_time) || 2.minutes
-      @kml = File.open(file)
-      @list = extract_list_from_kml
+      @list = {}
+      Dir.glob("#{@dir}/*.kml").each { |kml| @list.merge!(extract_list_from_kml(File.read(kml))) }
     end
 
     def locate_at(date)
@@ -18,8 +19,8 @@ module ExifGpsInjector
 
     private
 
-    def extract_list_from_kml
-      Nokogiri::XML(@kml).search('when')
+    def extract_list_from_kml(kml)
+      Nokogiri::XML(kml).search('when')
         .map { |e| { (DateTime.parse(e.text).utc) => e.next_element.text } }
         .reduce({}, :merge)
         .sort.to_h
