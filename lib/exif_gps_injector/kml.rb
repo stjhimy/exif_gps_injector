@@ -1,6 +1,6 @@
 module ExifGpsInjector
-  # LocationTracker
-  class LocationTracker
+  # Kml
+  class Kml
     attr_reader :list
     attr_accessor :max_distance_time
 
