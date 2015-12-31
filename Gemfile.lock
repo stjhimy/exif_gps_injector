@@ -3,6 +3,7 @@ PATH
   specs:
     exif_gps_injector (0.0.1)
       activesupport (~> 4.2)
+      mini_exiftool (~> 2.5)
       nokogiri (~> 1.6)
 
 GEM
@@ -45,6 +46,7 @@ GEM
       rb-inotify (>= 0.9)
     lumberjack (1.0.9)
     method_source (0.8.2)
+    mini_exiftool (2.5.1)
     mini_portile2 (2.0.0)
     minitest (5.8.3)
     nenv (0.2.0)
@@ -61,7 +63,7 @@ GEM
       method_source (~> 0.8.1)
       slop (~> 3.4)
     rainbow (2.0.0)
-    rb-fsevent (0.9.6)
+    rb-fsevent (0.9.7)
     rb-inotify (0.9.5)
       ffi (>= 0.5.0)
     rspec (3.4.0)
