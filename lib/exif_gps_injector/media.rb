@@ -8,7 +8,7 @@ module ExifGpsInjector
     end
 
     def tags
-      @exif.tags
+      @exif.tags.map { |e| [e, @exif[e]] }.to_h
     end
   end
 end

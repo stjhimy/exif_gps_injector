@@ -7,6 +7,7 @@ describe ExifGpsInjector::Media do
 
   it 'return tags' do
     expect(media.tags).to_not eq(nil)
+    expect(media.tags).to_not eq({})
     expect(media.tags.count).to be > 0
   end
 end
