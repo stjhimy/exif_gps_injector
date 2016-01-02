@@ -9,5 +9,6 @@ describe ExifGpsInjector::Media do
     expect(media.tags).to_not eq(nil)
     expect(media.tags).to_not eq({})
     expect(media.tags.count).to be > 0
+    expect(media.tags['FileSize']).to eq('1171 bytes')
   end
 end
