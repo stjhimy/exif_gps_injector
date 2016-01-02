@@ -10,5 +10,9 @@ module ExifGpsInjector
     def tags
       @exif.tags.map { |e| [e, @exif[e]] }.to_h
     end
+
+    def original_date_time
+      @original_date_time ||= @exif.date_time_original || @exif.file_create_date || @exif.file_modify_date
+    end
   end
 end
