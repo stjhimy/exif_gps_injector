@@ -1,3 +1,4 @@
+require 'pp'
 module ExifGpsInjector
   # Media
   class Media
@@ -13,6 +14,15 @@ module ExifGpsInjector
 
     def original_date_time
       @original_date_time ||= @exif.date_time_original || @exif.file_create_date || @exif.file_modify_date
+    end
+
+    def original_date_time=(value)
+      date = DateTime.parse(value).strftime
+      @exif.date_time_original = date
+      @exif.create = date
+      @exif.modify_date = date
+      @exif.save
+      value
     end
   end
 end
