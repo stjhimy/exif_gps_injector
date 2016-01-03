@@ -25,7 +25,7 @@ describe ExifGpsInjector::Media do
   end
 
   it 'set original_date_time' do
-    media.original_date_time = '2015-01-01'
-    expect(media.tags['DateTimeOriginal']).to_not eq(nil)
+    media.original_date_time = '2015-02-01'
+    expect(media.tags['DateTimeOriginal']).to eq('2015-02-01 00:00:00 -0200')
   end
 end
