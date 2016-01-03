@@ -24,5 +24,9 @@ module ExifGpsInjector
       @exif.save
       value
     end
+
+    def location
+      { latitude: @exif.gps_latitude, longitude: @exif.gps_longitude }
+    end
   end
 end

@@ -28,4 +28,8 @@ describe ExifGpsInjector::Media do
     media.original_date_time = '2015-02-01'
     expect(media.tags['DateTimeOriginal']).to eq('2015-02-01 00:00:00 -0200')
   end
+
+  it 'return location' do
+    expect(media.location).to_not eq(nil)
+  end
 end
