@@ -32,4 +32,10 @@ describe ExifGpsInjector::Media do
   it 'return location' do
     expect(media.location).to_not eq(nil)
   end
+
+  it 'set location' do
+    media.location = { gps_latitude: '-1000', gps_longitude: '-1000' }
+    expect(media.tags['GPSLatitude']).to include('1000')
+    expect(media.tags['GPSLongitude']).to include('1000')
+  end
 end

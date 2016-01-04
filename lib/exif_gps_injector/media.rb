@@ -28,5 +28,14 @@ module ExifGpsInjector
     def location
       { latitude: @exif.gps_latitude, longitude: @exif.gps_longitude }
     end
+
+    def location=(options)
+      @exif.gps_latitude = options[:gps_latitude]
+      @exif.gps_longitude = options[:gps_longitude]
+      @exif.gps_altitude = options[:gps_altitude] || 0
+      @exif.gps_latitude_ref = options[:gps_latitude_ref] || 'South'
+      @exif.gps_longitude_ref = options[:gps_longitude_ref] || 'West'
+      @exif.save
+    end
   end
 end
