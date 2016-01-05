@@ -9,7 +9,7 @@ OptionParser.new do |opt|
   opt.on('--output-dir OUTPUT_DIR') { |o| options[:output_dir] = o }
 end.parse!
 
-pwd = ENV["PWD"]
+pwd = ENV['PWD']
 options[:kml_dir] ||= pwd
 options[:input_dir] ||= pwd
 options[:output_dir] ||= pwd

@@ -8,6 +8,7 @@ Gem::Specification.new do |s|
   s.description = ''
   s.license = 'MIT'
 
+  s.executables   = ['exif_gps_injector']
   s.files         = `git ls-files`.split("\n")
   s.test_files    = `git ls-files -- {test,spec,features}/*`.split("\n")
   s.require_paths = ['lib']
