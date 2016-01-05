@@ -6,13 +6,11 @@ options = {}
 OptionParser.new do |opt|
   opt.on('--kml-dir KML_DIR') { |o| options[:kml_dir] = o }
   opt.on('--input-dir INPUT_DIR') { |o| options[:input_dir] = o }
-  opt.on('--output-dir OUTPUT_DIR') { |o| options[:output_dir] = o }
 end.parse!
 
 pwd = ENV['PWD']
 options[:kml_dir] ||= pwd
 options[:input_dir] ||= pwd
-options[:output_dir] ||= pwd
 
 kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
 
