@@ -4,8 +4,8 @@ Gem::Specification.new do |s|
   s.authors     = ['Jhimy Fernandes Villar']
   s.email       = ['stjhimy@gmail.com']
   s.homepage    = 'http://github.com/stjhimy/exif_gps_injector'
-  s.summary     = ''
-  s.description = ''
+  s.summary     = 'Add GPS exif tags to media files'
+  s.description = 'Add GPS exif tags to image/video files based on a kml file'
   s.license = 'MIT'
 
   s.executables   = ['exif_gps_injector']
