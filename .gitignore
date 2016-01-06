@@ -9,3 +9,4 @@ test/tmp/*
 spec/tmp/*
 spec/fixtures/example.jpg
 dummy
+*.gem
