@@ -17,6 +17,6 @@ kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
 Dir.glob(File.join(options[:input_dir], '/*.jpg')).each do |file|
   media = ExifGpsInjector::Media.new(file)
   location = kml.locate_at(media.original_date_time.to_s)
-  lat, long, alt = location.split(' ')
+  long, lat, alt = location.split(' ')
   media.location = { gps_latitude: lat, gps_longitude: long, gps_altitude: alt }
 end
