@@ -14,7 +14,7 @@ options[:input_dir] ||= pwd
 
 kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
 
-Dir.glob(File.join(options[:input_dir], '/*.jpg')).each do |file|
+(Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:input_dir], '/*.mp4')]).each do |file|
   media = ExifGpsInjector::Media.new(file)
   location = kml.locate_at(media.original_date_time.to_s)
   long, lat, alt = location.split(' ')
