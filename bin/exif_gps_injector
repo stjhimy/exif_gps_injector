@@ -6,15 +6,21 @@ options = {}
 OptionParser.new do |opt|
   opt.on('--kml-dir KML_DIR') { |o| options[:kml_dir] = o }
   opt.on('--input-dir INPUT_DIR') { |o| options[:input_dir] = o }
+  opt.on('--replace-original-file') { options[:replace_original_file] = true }
 end.parse!
 
 pwd = ENV['PWD']
 options[:kml_dir] ||= pwd
 options[:input_dir] ||= pwd
+options[:replace_original_file] ||= false
 
 kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
 
 (Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:input_dir], '/*.mp4')]).each do |file|
+  unless options[:replace_original_file]
+    FileUtils.cp(file, "#{File.dirname(file)}/_#{File.basename(file)}")
+    file = "#{File.dirname(file)}/_#{File.basename(file)}"
+  end
   media = ExifGpsInjector::Media.new(file)
   location = kml.locate_at(media.original_date_time.to_s)
   long, lat, alt = location.split(' ')
