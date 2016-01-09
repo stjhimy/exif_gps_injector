@@ -16,8 +16,10 @@ options[:input_dir] ||= pwd
 options[:replace_original_file] ||= false
 
 kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
+files = (Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:input_dir], '/*.mp4')])
+progressbar = ProgressBar.create(starting_at: 0, total: files.count)
 
-(Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:input_dir], '/*.mp4')]).each do |file|
+files.each do |file|
   unless options[:replace_original_file]
     FileUtils.cp(file, "#{File.dirname(file)}/_#{File.basename(file)}")
     file = "#{File.dirname(file)}/_#{File.basename(file)}"
@@ -26,4 +28,5 @@ kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
   location = kml.locate_at(media.original_date_time.to_s)
   long, lat, alt = location.split(' ')
   media.location = { gps_latitude: lat, gps_longitude: long, gps_altitude: alt }
+  progressbar.increment
 end
