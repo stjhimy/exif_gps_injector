@@ -5,6 +5,7 @@ PATH
       activesupport (~> 4.2)
       mini_exiftool (~> 2.5)
       nokogiri (~> 1.6)
+      ruby-progressbar (~> 1.7)
 
 GEM
   remote: https://rubygems.org/
@@ -106,3 +107,6 @@ DEPENDENCIES
   guard-rubocop (~> 1.2)
   rspec (~> 3.4)
   vcr (~> 3.0)
+
+BUNDLED WITH
+   1.10.6

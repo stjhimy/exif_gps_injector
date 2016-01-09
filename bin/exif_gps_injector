@@ -1,6 +1,7 @@
 #!/usr/bin/env ruby
 
 require 'exif_gps_injector'
+require 'ruby-progressbar'
 
 options = {}
 OptionParser.new do |opt|
