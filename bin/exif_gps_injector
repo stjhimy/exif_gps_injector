@@ -20,6 +20,7 @@ files = (Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:
 progressbar = ProgressBar.create(starting_at: 0, total: files.count)
 
 puts "#{files.count} files found"
+
 files.each do |file|
   unless options[:replace_original_file]
     FileUtils.cp(file, "#{File.dirname(file)}/_#{File.basename(file)}")
