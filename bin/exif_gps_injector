@@ -8,6 +8,7 @@ OptionParser.new do |opt|
   opt.on('--kml-dir KML_DIR') { |o| options[:kml_dir] = o }
   opt.on('--input-dir INPUT_DIR') { |o| options[:input_dir] = o }
   opt.on('--replace-original-file') { options[:replace_original_file] = true }
+  opt.on('--fallback-location FALLBACK_LOCATION') { |o| options[:fallback_location] = o }
 end.parse!
 
 pwd = ENV['PWD']
@@ -28,6 +29,7 @@ files.each do |file|
   end
   media = ExifGpsInjector::Media.new(file)
   location = kml.locate_at(media.original_date_time.to_s)
+  location ||= options[:fallback_location] unless options[:fallback_location].to_s.empty?
   long, lat, alt = location.split(' ')
   media.location = { gps_latitude: lat, gps_longitude: long, gps_altitude: alt }
   progressbar.increment
