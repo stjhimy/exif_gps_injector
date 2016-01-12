@@ -9,6 +9,7 @@ OptionParser.new do |opt|
   opt.on('--input-dir', 'Directory to read media files, default to ./') { |o| options[:input_dir] = o }
   opt.on('--replace-original-files', 'Default to false') { options[:replace_original_files] = true }
   opt.on('--fallback-location', "Fallback to this location if can't locate on kml files eg: '-42.0000 -10.0000 0'") { |o| options[:fallback_location] = o }
+  opt.on('--gps-refs', 'Default South/West') { |o| options[:gps_refs] = o }
 end.parse!
 
 pwd = ENV['PWD']
@@ -32,7 +33,8 @@ files.each do |file|
   location ||= options[:fallback_location] unless options[:fallback_location].to_s.empty?
   if location
     long, lat, alt = location.split(' ')
-    media.location = { gps_latitude: lat, gps_longitude: long, gps_altitude: alt }
+    lat_ref, long_ref = options[:gps_refs].to_s.split('/')
+    media.location = { gps_latitude: lat, gps_longitude: long, gps_altitude: alt, gps_latitude_ref: lat_ref, gps_longitude_ref: long_ref }
   end
   progressbar.increment
 end
