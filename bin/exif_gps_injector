@@ -5,25 +5,25 @@ require 'ruby-progressbar'
 
 options = {}
 OptionParser.new do |opt|
-  opt.on('--kml-dir KML_DIR') { |o| options[:kml_dir] = o }
-  opt.on('--input-dir INPUT_DIR') { |o| options[:input_dir] = o }
-  opt.on('--replace-original-file') { options[:replace_original_file] = true }
-  opt.on('--fallback-location FALLBACK_LOCATION') { |o| options[:fallback_location] = o }
+  opt.on('--kml-dir', 'Directory to read the kml files, default to ./') { |o| options[:kml_dir] = o }
+  opt.on('--input-dir', 'Directory to read media files, default to ./') { |o| options[:input_dir] = o }
+  opt.on('--replace-original-files', 'Default to false') { options[:replace_original_files] = true }
+  opt.on('--fallback-location', "Fallback to this location if can't locate on kml files eg: '-42.0000 -10.0000 0'") { |o| options[:fallback_location] = o }
 end.parse!
 
 pwd = ENV['PWD']
 options[:kml_dir] ||= pwd
 options[:input_dir] ||= pwd
-options[:replace_original_file] ||= false
-
+options[:replace_original_files] ||= false
 kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
 files = (Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:input_dir], '/*.mp4')])
-progressbar = ProgressBar.create(starting_at: 0, total: files.count)
+progressbar = ProgressBar.create(title: 'Injecting', starting_at: 0, total: files.count)
 
 puts "#{files.count} files found"
+puts "#{kml.list.count} location points\n\n"
 
 files.each do |file|
-  unless options[:replace_original_file]
+  unless options[:replace_original_files]
     FileUtils.cp(file, "#{File.dirname(file)}/_#{File.basename(file)}")
     file = "#{File.dirname(file)}/_#{File.basename(file)}"
   end
@@ -36,3 +36,5 @@ files.each do |file|
   end
   progressbar.increment
 end
+
+puts "\n Finished!"
