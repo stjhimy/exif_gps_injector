@@ -30,7 +30,9 @@ files.each do |file|
   media = ExifGpsInjector::Media.new(file)
   location = kml.locate_at(media.original_date_time.to_s)
   location ||= options[:fallback_location] unless options[:fallback_location].to_s.empty?
-  long, lat, alt = location.split(' ')
-  media.location = { gps_latitude: lat, gps_longitude: long, gps_altitude: alt }
+  if location
+    long, lat, alt = location.split(' ')
+    media.location = { gps_latitude: lat, gps_longitude: long, gps_altitude: alt }
+  end
   progressbar.increment
 end
