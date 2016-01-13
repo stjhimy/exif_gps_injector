@@ -5,11 +5,11 @@ require 'ruby-progressbar'
 
 options = {}
 OptionParser.new do |opt|
-  opt.on('--kml-dir KML_DIR', 'Directory to read the kml files, default to ./') { |o| options[:kml_dir] = o }
-  opt.on('--input-dir INPUT_DIR', 'Directory to read media files, default to ./') { |o| options[:input_dir] = o }
-  opt.on('--replace-original-files', 'Default to false') { options[:replace_original_files] = true }
   opt.on('--fallback-location LOCATION', "Fallback to this location if can't locate on kml files eg: '-42.0000 -10.0000 0'") { |o| options[:fallback_location] = o }
   opt.on('--gps-refs REFS', 'Default South/West') { |o| options[:gps_refs] = o }
+  opt.on('--input-dir INPUT_DIR', 'Directory to read media files, default to ./') { |o| options[:input_dir] = o }
+  opt.on('--kml-dir KML_DIR', 'Directory to read the kml files, default to ./') { |o| options[:kml_dir] = o }
+  opt.on('--replace-original-files', 'Default to false') { options[:replace_original_files] = true }
 end.parse!
 
 pwd = ENV['PWD']
