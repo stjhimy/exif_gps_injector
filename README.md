@@ -1,6 +1,6 @@
 # Exif GPS Injector
 
-Add GPS exif tags to image/video based on a kml file.
+Add GPS exif tags to images/videos based on a kml file
 
 ## Installation
 
