@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    exif_gps_injector (0.0.2)
+    exif_gps_injector (1.0.0)
       activesupport (~> 4.2)
       mini_exiftool (~> 2.5)
       nokogiri (~> 1.6)

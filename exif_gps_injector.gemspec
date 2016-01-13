@@ -16,7 +16,6 @@ Gem::Specification.new do |s|
   s.add_dependency 'activesupport',               '~> 4.2'
   s.add_dependency 'mini_exiftool',               '~> 2.5'
   s.add_dependency 'nokogiri',                    '~> 1.6'
-  s.add_dependency 'nokogiri',                    '~> 1.6'
   s.add_dependency 'ruby-progressbar',            '~> 1.7'
 
   s.add_development_dependency 'guard',           '~> 2.13'
