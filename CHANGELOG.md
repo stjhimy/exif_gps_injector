@@ -1,6 +1,13 @@
 Changelog
 =========
 
+Version 1.0.0 (January 14, 2016)
+-----------------------------
+
+* Added --fallback-location
+* Added --gps-refs
+* Released 1.0.0 to Rubygems
+
 Version 0.0.2 (January 10, 2016)
 -----------------------------
 
