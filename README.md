@@ -15,21 +15,21 @@ Add GPS exif tags to images/videos based on a kml file
 Copy images and kml to the same folder:
 
 ```
-exif_gps_injector --help
+❯❯❯ exif_gps_injector --help
 Usage: exif_gps_injector [options]
-        --kml-dir                    Directory to read the kml files, default to ./
-        --input-dir                  Directory to read media files, default to ./
+        --fallback-location LOCATION Fallback to this location if can't locate on kml files eg: '-42.0000 -10.0000 0'
+        --gps-refs REFS              Default South/West
+        --input-dir INPUT_DIR        Directory to read media files, default to ./
+        --kml-dir KML_DIR            Directory to read the kml files, default to ./
         --replace-original-files     Default to false
-        --fallback-location          Fallback to this location if can't locate on kml files eg: '-42.0000 -10.0000 0'
-        --gps-refs                   Default South/West
 ```
 
 ```
-exif_gps_injector --kml-dir "./" --input-dir "./" --replace-original-files
-70 files found
-459 location points
+❯❯❯ exif_gps_injector --replace-original-files
+23 files found                                                                                                                                       |
+2621 location points
 
-Injecting: |===================================================================|
+Injecting: |=========================================================================================================================================|
 
  Finished!
 ```
