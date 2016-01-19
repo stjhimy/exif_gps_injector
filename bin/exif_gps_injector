@@ -9,7 +9,7 @@ OptionParser.new do |opt|
   opt.on('--gps-refs REFS', 'Default South/West') { |o| options[:gps_refs] = o }
   opt.on('--input-dir INPUT_DIR', 'Directory to read media files, default to ./') { |o| options[:input_dir] = o }
   opt.on('--kml-dir KML_DIR', 'Directory to read the kml files, default to ./') { |o| options[:kml_dir] = o }
-  opt.on('--max-distance-time MAX_DISTANCE', 'KML max distance in time from original date') { |o| options[:max_distance_time] = o }
+  opt.on('--max-distance-time DISTANCE', 'KML max distance in time from original date') { |o| options[:max_distance_time] = o }
   opt.on('--replace-original-files', 'Default to false') { options[:replace_original_files] = true }
 end.parse!
 
