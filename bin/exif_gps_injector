@@ -17,7 +17,7 @@ pwd = ENV['PWD']
 options[:kml_dir] ||= pwd
 options[:input_dir] ||= pwd
 options[:replace_original_files] ||= false
-kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir])
+kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir], max_distance_time: options[:max_distance_time])
 files = (Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:input_dir], '/*.mp4')])
 progressbar = ProgressBar.create(title: 'Injecting', starting_at: 0, total: files.count)
 
