@@ -6,7 +6,7 @@ Gem::Specification.new do |s|
   s.license     = 'MIT'
   s.summary     = 'Add GPS exif tags to media files'
   s.description = 'Add GPS exif tags to images/videos based on a kml file'
-  s.version     = '1.0.0'
+  s.version     = '1.1.0'
 
   s.executables   = ['exif_gps_injector']
   s.files         = `git ls-files`.split("\n")
