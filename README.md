@@ -21,6 +21,7 @@ Usage: exif_gps_injector [options]
         --gps-refs REFS              Default South/West
         --input-dir INPUT_DIR        Directory to read media files, default to ./
         --kml-dir KML_DIR            Directory to read the kml files, default to ./
+        --max-distance-time DISTANCE KML max distance in time from original date
         --replace-original-files     Default to false
 ```
 
