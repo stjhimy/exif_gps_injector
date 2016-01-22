@@ -1,6 +1,12 @@
 Changelog
 =========
 
+Version 1.1.0 (January 22, 2016)
+-----------------------------
+
+* Bug fixes
+* Add --max-distance-time
+
 Version 1.0.0 (January 14, 2016)
 -----------------------------
 
