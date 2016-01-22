@@ -17,19 +17,20 @@ Copy images and kml to the same folder:
 ```
 ❯❯❯ exif_gps_injector --help
 Usage: exif_gps_injector [options]
-        --fallback-location LOCATION Fallback to this location if can't locate on kml files eg: '-42.0000 -10.0000 0'
+        --fallback-location LOCATION Fallback to this location if can't locate on kml
         --gps-refs REFS              Default South/West
         --input-dir INPUT_DIR        Directory to read media files, default to ./
         --kml-dir KML_DIR            Directory to read the kml files, default to ./
+        --max-distance-time DISTANCE KML max distance in time from original date
         --replace-original-files     Default to false
 ```
 
 ```
 ❯❯❯ exif_gps_injector --replace-original-files
-23 files found                                                                                                                                       |
+23 files found
 2621 location points
 
-Injecting: |=========================================================================================================================================|
+Injecting: |======================================================================
 
  Finished!
 ```
