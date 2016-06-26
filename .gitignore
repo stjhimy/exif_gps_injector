@@ -10,3 +10,4 @@ spec/tmp/*
 spec/fixtures/example.jpg
 dummy
 *.gem
+Gemfile.lock
