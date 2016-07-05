@@ -6,7 +6,7 @@ module ExifGpsInjector
 
     def initialize(options = {})
       @dir = options.delete(:dir)
-      @max_distance_time = (options.delete(:max_distance_time) || 2).minutes
+      @max_distance_time = (options.delete(:max_distance_time).to_i || 2).minutes
       @list = {}
       Dir.glob("#{@dir}/*.kml").each { |kml| @list.merge!(extract_list_from_kml(File.read(kml))) }
     end
