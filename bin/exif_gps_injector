@@ -19,7 +19,7 @@ options[:kml_dir] ||= pwd
 options[:input_dir] ||= pwd
 options[:replace_original_files] ||= false
 kml = ExifGpsInjector::Kml.new(dir: options[:kml_dir], max_distance_time: options[:max_distance_time])
-files = (Dir[File.join(options[:input_dir], '/*.jpg')] + Dir[File.join(options[:input_dir], '/*.mp4')])
+files = Dir.glob(File.join(options[:input_dir], '/*.JPG') ,File::FNM_CASEFOLD) + Dir.glob(File.join(options[:input_dir], '/*.mp4'), File::FNM_CASEFOLD)
 progressbar = ProgressBar.create(title: 'Injecting', starting_at: 0, total: files.count)
 
 puts "#{files.count} files found"
