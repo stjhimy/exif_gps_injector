@@ -2,6 +2,11 @@
 
 Add GPS exif tags to images/videos based on a kml file
 
+## Google KML files
+
+Google updated their KML files structure after 2016/04 making the injector fails.
+The only accepted format is the old one you can see [here](https://github.com/stjhimy/exif_gps_injector/blob/master/spec/fixtures/history.kml).
+
 ## Installation
 
 ```ruby
