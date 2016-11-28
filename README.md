@@ -1,6 +1,7 @@
 # Exif GPS Injector
 
 Add GPS exif tags to images/videos based on a kml file
+**Does not work with new Google Kml files**
 
 ## Google KML files
 
